@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LogiCon — Proposed NeurIPS 2026 Competition</title>
   <meta name="description" content="LogiCon is a proposed NeurIPS 2026 competition on logical consistency, reliable reasoning, and verifiable machine learning systems." />
-  <meta name="theme-color" content="#111827" />
+  <meta name="theme-color" content="#8b4c1f" />
   <meta property="og:title" content="LogiCon — Proposed NeurIPS 2026 Competition" />
-  <meta property="og:description" content="A competition hub for task, data, submissions, evaluation, rules, starter kits, and organizer information." />
+  <meta property="og:description" content="A competition hub for task, data, submissions, evaluation, rules, starter kits, Codabench links, and organizer information." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://logicon-competition.github.io/" />
   <link rel="canonical" href="https://logicon-competition.github.io/" />
@@ -18,16 +18,18 @@
 
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="#top"><span class="brand-mark">L</span><span>LogiCon</span></a>
+      <a class="brand" href="#top" aria-label="LogiCon home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>LogiCon</span>
+      </a>
       <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links" data-nav-links>
         <a href="#overview">Overview</a>
-        <a href="#submissions">Submissions</a>
+        <a href="#codabench">Codabench</a>
         <a href="#data">Data</a>
         <a href="#evaluation">Evaluation</a>
         <a href="#timeline">Timeline</a>
         <a href="#rules">Rules</a>
-        <a href="#resources">Resources</a>
         <a href="#organizers">Organizers</a>
       </div>
     </nav>
@@ -42,17 +44,18 @@
           <p class="hero-subtitle">Logical consistency and verifiable reasoning under realistic constraints.</p>
           <p class="hero-text">LogiCon is a competition proposal for evaluating whether AI systems can reason reliably under explicit logical constraints, multi-step dependencies, and adversarially structured inputs. This website is the public hub for the proposal and, if accepted, the competition launch.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#submissions">Submission plan</a>
+            <a class="button primary" href="#codabench">Competition links</a>
             <a class="button secondary" href="#evaluation">Evaluation protocol</a>
           </div>
           <div class="status-panel" role="status"><strong>Status:</strong><span>Proposal site prepared for the NeurIPS 2026 Competition Track. This page does not claim official NeurIPS acceptance.</span></div>
         </div>
-        <aside class="hero-card" aria-label="Competition summary">
-          <div class="card-header"><span class="pill">Static public hub</span><span class="pill muted">External leaderboard</span></div>
+        <aside class="hero-logo-card" aria-label="Competition summary">
+          <div class="hero-logo-large" role="img" aria-label="LogiCon logo"></div>
+          <div class="card-header"><span class="pill">Static public hub</span><span class="pill muted">Codabench ready</span></div>
           <dl class="facts">
             <div><dt>Website role</dt><dd>Canonical hub for rules, links, updates, and documentation</dd></div>
-            <div><dt>Submissions</dt><dd>External competition platform, preferably Codabench</dd></div>
-            <div><dt>Data release</dt><dd>Versioned public dataset + protected hidden test labels</dd></div>
+            <div><dt>Submissions</dt><dd>External competition platform; Codabench placeholders prepared</dd></div>
+            <div><dt>Data release</dt><dd>Versioned public data plus protected hidden-test labels</dd></div>
             <div><dt>Evaluation</dt><dd>Automated scoring bundle with validation gates</dd></div>
           </dl>
         </aside>
@@ -63,47 +66,82 @@
       <div class="container two-col">
         <div>
           <p class="eyebrow">Operating model</p>
-          <h2>Keep the website static; run submissions elsewhere.</h2>
-          <p>A GitHub Pages website should not collect submissions or run evaluations. It should be the stable public front door: task definition, rules, timeline, dataset links, starter code, leaderboard links, FAQ, and organizer contacts.</p>
-          <p>The competition platform should handle registration, submissions, validation, scoring logs, leaderboard phases, and final ranking.</p>
+          <h2>The website is the hub. Codabench runs the competition.</h2>
+          <p>GitHub Pages should stay static, reliable, and easy to archive. It should not collect uploads or run evaluation. Instead, it should link participants to the competition platform, dataset release, starter kit, rules, discussion channel, and leaderboard.</p>
+          <p>Codabench will be the default place for registration, submissions, scoring logs, leaderboard phases, and final ranking. The fields below are ready for the final Codabench URLs once the competition page is created.</p>
         </div>
         <div class="highlight-box">
           <h3>Recommended architecture</h3>
           <ul class="check-list">
             <li><strong>Website:</strong> GitHub Pages organization site.</li>
-            <li><strong>Submissions:</strong> Codabench by default; Kaggle if the task is a standard prediction challenge.</li>
-            <li><strong>Data:</strong> Hugging Face Datasets or Zenodo, mirrored through the platform if useful.</li>
-            <li><strong>Code:</strong> GitHub starter kit with validation and baseline scripts.</li>
-            <li><strong>Discussion:</strong> Google Group plus optional Discord.</li>
+            <li><strong>Competition platform:</strong> Codabench page for tasks, phases, submissions, and leaderboard.</li>
+            <li><strong>Data:</strong> Codabench-hosted public files, mirrored on Hugging Face Datasets or Zenodo if useful.</li>
+            <li><strong>Code:</strong> GitHub starter kit with validator, baseline, and example submission.</li>
+            <li><strong>Discussion:</strong> Google Group and optional Discord.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="section alt" id="submissions">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Submissions</p>
-          <h2>Use a dedicated platform, not a custom web form.</h2>
-          <p>The live competition page will be linked here after the platform is configured. Participants should submit through a purpose-built competition platform so scoring, logs, leaderboards, limits, and invalid attempts are handled consistently.</p>
-          <div class="callout good"><strong>Default recommendation:</strong> Codabench. It is well suited for academic competitions with custom scoring programs, phases, public/private leaderboards, and reproducible bundles.</div>
+    <section class="section alt" id="codabench">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Infrastructure links</p>
+          <h2>Fields ready for Codabench, dataset, and submission links</h2>
+          <p>Replace the placeholder URLs in these cards when the Codabench competition is created. Keeping these links visible makes the site look operational while clearly marking what is still pending.</p>
         </div>
-        <div class="stack">
-          <article class="mini-card"><h3>Planned participant flow</h3><ol><li>Register on the competition platform.</li><li>Download data and starter kit from links on this website.</li><li>Run local validation with the starter kit.</li><li>Upload predictions, or code only if code submission is required.</li><li>Platform validates, scores, logs, and updates the relevant leaderboard.</li></ol></article>
-          <article class="mini-card"><h3>Prediction files first</h3><p>Prefer CSV/JSONL prediction-file submissions for the main track. They are cheaper, simpler, safer, and easier to reproduce. Use code submissions only if hidden data must be processed inside a controlled environment.</p></article>
+        <div class="link-grid">
+          <a class="link-card pending" href="#" aria-disabled="true">
+            <span class="tag">Codabench</span>
+            <strong>Competition page</strong>
+            <p>Main competition landing page on Codabench.</p>
+            <code>TODO: https://www.codabench.org/competitions/&lt;id&gt;/</code>
+          </a>
+          <a class="link-card pending" href="#" aria-disabled="true">
+            <span class="tag">Submissions</span>
+            <strong>Submit predictions</strong>
+            <p>Participant upload page for prediction files or code bundles.</p>
+            <code>TODO: Codabench submission phase URL</code>
+          </a>
+          <a class="link-card pending" href="#" aria-disabled="true">
+            <span class="tag">Leaderboard</span>
+            <strong>Public leaderboard</strong>
+            <p>Public validation scores during the active competition phase.</p>
+            <code>TODO: Codabench leaderboard URL</code>
+          </a>
+          <a class="link-card pending" href="#" aria-disabled="true">
+            <span class="tag">Dataset</span>
+            <strong>Dataset download</strong>
+            <p>Practice/dev files, schema, sample submission, and data card.</p>
+            <code>TODO: Codabench dataset URL or Hugging Face / Zenodo mirror</code>
+          </a>
+          <a class="link-card pending" href="#" aria-disabled="true">
+            <span class="tag">Starter kit</span>
+            <strong>Baseline repository</strong>
+            <p>Validator, baseline model, scoring example, and submission template.</p>
+            <code>TODO: https://github.com/LogiCon-Competition/starter-kit</code>
+          </a>
+          <a class="link-card pending" href="#" aria-disabled="true">
+            <span class="tag">Rules</span>
+            <strong>Terms and eligibility</strong>
+            <p>Team limits, allowed resources, external data policy, and final verification.</p>
+            <code>TODO: /rules or Codabench terms page</code>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="platforms">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">Platform decision</p><h2>Recommended competition platform</h2><p>The website will link to the chosen platform; it should not itself be the platform.</p></div>
-        <div class="comparison-table" role="table" aria-label="Competition platform comparison">
-          <div class="row header" role="row"><div>Platform</div><div>Best fit</div><div>Recommendation</div></div>
-          <div class="row" role="row"><div><strong>Codabench</strong></div><div>Academic ML competitions with custom metrics, phases, scoring bundles, hidden tests, and reproducible submissions.</div><div><span class="pill yes">Recommended</span></div></div>
-          <div class="row" role="row"><div><strong>Kaggle</strong></div><div>Large public prediction challenges with built-in data hosting, notebooks, discussion, and familiar CSV submission workflows.</div><div><span class="pill maybe">Alternative</span></div></div>
-          <div class="row" role="row"><div><strong>EvalAI</strong></div><div>Custom challenge hosting and remote evaluation when the organizers have budget or specific infrastructure needs.</div><div><span class="pill maybe">Use if needed</span></div></div>
-          <div class="row" role="row"><div><strong>Custom backend</strong></div><div>Bespoke security, compute, or interactive evaluation needs.</div><div><span class="pill no">Avoid initially</span></div></div>
+    <section class="section" id="submissions">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Submissions</p>
+          <h2>Use Codabench submissions, not a custom form.</h2>
+          <p>Participants should upload through Codabench so that submission limits, scoring logs, public/private phases, and failed submissions are handled consistently.</p>
+          <div class="callout good"><strong>Default recommendation:</strong> start with CSV/JSONL prediction-file submissions. They are cheaper, safer, easier to debug, and more reproducible than executable-code submissions.</div>
+        </div>
+        <div class="stack">
+          <article class="mini-card"><h3>Participant flow</h3><ol><li>Register on Codabench.</li><li>Download data and starter kit from this website.</li><li>Run local validation with the starter kit.</li><li>Upload predictions to the Codabench submission phase.</li><li>Codabench validates, scores, logs, and updates the leaderboard.</li></ol></article>
+          <article class="mini-card"><h3>When to use code submissions</h3><p>Use executable submissions only if hidden data must be processed by each participant system inside a controlled environment. Otherwise, prediction files are more robust.</p></article>
         </div>
       </div>
     </section>
@@ -113,11 +151,11 @@
         <div>
           <p class="eyebrow">Data release</p>
           <h2>Make data public, versioned, and auditable.</h2>
-          <p>LogiCon should provide enough public data for participants to develop systems, while keeping final labels or final instances protected. Data hosting should be separate from this static website.</p>
-          <div class="callout"><strong>Recommended:</strong> host public data and a dataset card on Hugging Face Datasets or Zenodo. Keep hidden labels inside the scoring bundle or platform-protected private split.</div>
+          <p>LogiCon should provide enough public data for participants to develop systems, while keeping final labels or final instances protected. Data can be exposed through Codabench for convenience and mirrored on a long-term archive such as Hugging Face Datasets or Zenodo.</p>
+          <div class="callout"><strong>Recommended:</strong> host practice/dev data and sample submissions publicly; keep private final labels inside the Codabench scoring bundle or protected private split.</div>
         </div>
         <div class="stack">
-          <article class="mini-card"><h3>Data splits</h3><ul><li><strong>Practice:</strong> small labeled examples and output format.</li><li><strong>Development:</strong> labeled data for local validation.</li><li><strong>Public test:</strong> hidden labels for active leaderboard feedback.</li><li><strong>Private final test:</strong> hidden labels for final ranking.</li></ul></article>
+          <article class="mini-card"><h3>Data splits</h3><ul><li><strong>Practice:</strong> small labeled examples and output format.</li><li><strong>Development:</strong> labeled data for local validation.</li><li><strong>Public test:</strong> hidden labels for leaderboard feedback.</li><li><strong>Private final test:</strong> hidden labels for final ranking.</li></ul></article>
           <article class="mini-card"><h3>Data package checklist</h3><ul><li>Dataset card, license, citation, and known limitations.</li><li>Stable release tags and checksums.</li><li>Example submission and schema validator.</li><li>Policy for external data, pretrained models, tools, and manual annotation.</li></ul></article>
         </div>
       </div>
@@ -132,7 +170,7 @@
           <div class="callout good"><strong>Viability gate:</strong> every submission should pass format validation, completeness checks, ID checks, resource-limit checks, and baseline sanity tests before it receives a score.</div>
         </div>
         <div class="stack">
-          <article class="mini-card"><h3>Evaluation layers</h3><ol><li><strong>Schema validation:</strong> required columns, IDs, and answer format.</li><li><strong>Integrity checks:</strong> file size, duplicates, missing IDs, and leakage indicators.</li><li><strong>Scoring:</strong> primary metric, diagnostic metrics, and tie-breakers.</li><li><strong>Robustness audit:</strong> slices for perturbations or out-of-distribution cases.</li><li><strong>Final verification:</strong> method report and reproducibility materials for top teams.</li></ol></article>
+          <article class="mini-card"><h3>Evaluation layers</h3><ol><li><strong>Schema validation:</strong> required columns, IDs, and answer format.</li><li><strong>Integrity checks:</strong> file size, duplicates, missing IDs, and leakage indicators.</li><li><strong>Scoring:</strong> primary metric, diagnostic metrics, and tie-breakers.</li><li><strong>Robustness audit:</strong> perturbation or out-of-distribution slices.</li><li><strong>Final verification:</strong> method report and reproducibility package for top teams.</li></ol></article>
           <article class="mini-card"><h3>Metric placeholder</h3><p><strong>Primary metric:</strong> to be finalized for the exact task. Candidate families include exact-match consistency, proof validity, contradiction rate, calibrated accuracy, or a composite logical-reasoning score.</p><p><strong>Tie-breakers:</strong> invalid-output rate, contradiction rate, compute budget, and earlier valid submission timestamp.</p></article>
         </div>
       </div>
@@ -170,18 +208,7 @@
       </div>
     </section>
 
-    <section class="section" id="resources">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">Resources</p><h2>Planned public resources</h2><p>Links below are placeholders while infrastructure is finalized.</p></div>
-        <div class="resources">
-          <article class="resource-card"><span class="tag">Code</span><h3>Starter kit repository</h3><p>Reference scripts, baseline models, validator, and submission examples.</p><a class="placeholder-link" href="https://github.com/LogiCon-Competition" target="_blank" rel="noreferrer">GitHub organization →</a></article>
-          <article class="resource-card"><span class="tag">Leaderboard</span><h3>Submission platform</h3><p>Planned public validation leaderboard and hidden final evaluation.</p><a class="placeholder-link" href="#contact">Platform link coming soon →</a></article>
-          <article class="resource-card"><span class="tag">Data</span><h3>Dataset release</h3><p>Versioned dataset card, public splits, checksums, and license.</p><a class="placeholder-link" href="#contact">Dataset link coming soon →</a></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="organizers">
+    <section class="section" id="organizers">
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Team</p><h2>Organizers</h2><p>The LogiCon organizing team is affiliated with LASIGE and is responsible for benchmark design, data release, evaluation infrastructure, participant support, and final reporting.</p></div>
         <div class="organizers">
@@ -201,16 +228,15 @@
             <div class="organizer-links"><a class="profile-link" href="https://lasige.pt/organisation/" target="_blank" rel="noreferrer">LASIGE leadership</a><a class="profile-link" href="https://lasige.pt/research-line/health-and-biomedical-informatics/" target="_blank" rel="noreferrer">HBI line</a></div>
           </article>
         </div>
-        <p class="small-note">Profile images will be replaced with LASIGE-hosted headshots once stable direct image URLs are available for all organizers.</p>
       </div>
     </section>
 
-    <section class="section" id="faq">
+    <section class="section alt" id="faq">
       <div class="container">
         <div class="section-heading"><p class="eyebrow">FAQ</p><h2>Frequently asked questions</h2></div>
         <div class="faq">
-          <article class="faq-item"><h3>Will submissions be made on this website?</h3><p>No. This website is static and should remain a stable information hub. Submissions should be made through Codabench, Kaggle, EvalAI, or another dedicated platform.</p></article>
-          <article class="faq-item"><h3>How will hidden test labels be protected?</h3><p>Final labels should not be included in public files. They should live inside the protected scoring environment, private platform data, or organizer-controlled scoring bundle.</p></article>
+          <article class="faq-item"><h3>Will submissions be made on this website?</h3><p>No. This website is static and should remain a stable information hub. Submissions should be made through Codabench or another dedicated platform.</p></article>
+          <article class="faq-item"><h3>Where will the data live?</h3><p>The public dataset can be linked from Codabench and mirrored through a long-term repository. Hidden final labels should remain protected inside the scoring setup.</p></article>
           <article class="faq-item"><h3>How will invalid submissions be handled?</h3><p>The scoring program should first run validation checks. Invalid submissions should receive clear error messages and no leaderboard score unless the platform records them separately as failed attempts.</p></article>
         </div>
       </div>
