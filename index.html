@@ -71,13 +71,11 @@
           <p>Codabench will be the default place for registration, submissions, scoring logs, leaderboard phases, and final ranking. The fields below are ready for the final Codabench URLs once the competition page is created.</p>
         </div>
         <div class="highlight-box">
-          <h3>Recommended architecture</h3>
           <ul class="check-list">
-            <li><strong>Website:</strong> GitHub Pages organization site.</li>
             <li><strong>Competition platform:</strong> Codabench page for tasks, phases, submissions, and leaderboard.</li>
-            <li><strong>Data:</strong> Codabench-hosted public files, mirrored on Hugging Face Datasets or Zenodo if useful.</li>
-            <li><strong>Code:</strong> GitHub starter kit with validator, baseline, and example submission.</li>
-            <li><strong>Discussion:</strong> Google Group and optional Discord.</li>
+            <li><strong>Data:</strong> Codabench-hosted public files </li>
+            <li><strong>Baseline Code:</strong> GitHub support kit with baseline and example submission.</li>
+            <li><strong>Discussion:</strong> Discord channel URL</li>
           </ul>
         </div>
       </div>
@@ -92,34 +90,21 @@
         </div>
         <div class="link-grid">
           <a class="link-card pending" href="#" aria-disabled="true">
-            <span class="tag">Codabench</span>
-            <strong>Competition page</strong>
-            <p>Main competition landing page on Codabench.</p>
-            <code>TODO: https://www.codabench.org/competitions/&lt;id&gt;/</code>
-          </a>
-          <a class="link-card pending" href="#" aria-disabled="true">
-            <span class="tag">Submissions</span>
+            <span class="tag">Submissions and Leaderboard</span>
             <strong>Submit predictions</strong>
-            <p>Participant upload page for prediction files or code bundles.</p>
+            <p>Participant upload page for prediction files and leaderboard.</p>
             <code>TODO: Codabench submission phase URL</code>
-          </a>
-          <a class="link-card pending" href="#" aria-disabled="true">
-            <span class="tag">Leaderboard</span>
-            <strong>Public leaderboard</strong>
-            <p>Public validation scores during the active competition phase.</p>
-            <code>TODO: Codabench leaderboard URL</code>
           </a>
           <a class="link-card pending" href="#" aria-disabled="true">
             <span class="tag">Dataset</span>
             <strong>Dataset download</strong>
-            <p>Practice/dev files, schema, sample submission, and data card.</p>
-            <code>TODO: Codabench dataset URL or Hugging Face / Zenodo mirror</code>
+            <code>TODO: Direct Codabench dataset URL</code>
           </a>
           <a class="link-card pending" href="#" aria-disabled="true">
-            <span class="tag">Starter kit</span>
+            <span class="tag">Support code</span>
             <strong>Baseline repository</strong>
-            <p>Validator, baseline model, scoring example, and submission template.</p>
-            <code>TODO: https://github.com/LogiCon-Competition/starter-kit</code>
+            <p>Data processing, Baseline models, and submission example</p>
+            <code>TODO: https://github.com/LogiCon-Competition/support-code</code>
           </a>
           <a class="link-card pending" href="#" aria-disabled="true">
             <span class="tag">Rules</span>
@@ -161,32 +146,6 @@
       </div>
     </section>
 
-    <section class="section" id="evaluation">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Evaluation</p>
-          <h2>Use an automated scoring bundle with viability checks.</h2>
-          <p>The evaluation should be executable, deterministic where possible, and versioned. Organizers should be able to re-run submissions, inspect logs, and reproduce final rankings.</p>
-          <div class="callout good"><strong>Viability gate:</strong> every submission should pass format validation, completeness checks, ID checks, resource-limit checks, and baseline sanity tests before it receives a score.</div>
-        </div>
-        <div class="stack">
-          <article class="mini-card"><h3>Evaluation layers</h3><ol><li><strong>Schema validation:</strong> required columns, IDs, and answer format.</li><li><strong>Integrity checks:</strong> file size, duplicates, missing IDs, and leakage indicators.</li><li><strong>Scoring:</strong> primary metric, diagnostic metrics, and tie-breakers.</li><li><strong>Robustness audit:</strong> perturbation or out-of-distribution slices.</li><li><strong>Final verification:</strong> method report and reproducibility package for top teams.</li></ol></article>
-          <article class="mini-card"><h3>Metric placeholder</h3><p><strong>Primary metric:</strong> to be finalized for the exact task. Candidate families include exact-match consistency, proof validity, contradiction rate, calibrated accuracy, or a composite logical-reasoning score.</p><p><strong>Tie-breakers:</strong> invalid-output rate, contradiction rate, compute budget, and earlier valid submission timestamp.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="tracks">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">Tracks</p><h2>Proposed competition tracks</h2></div>
-        <div class="cards three">
-          <article class="card"><h3>Track A · Prediction</h3><p>Participants submit answers for hidden benchmark instances. This is the simplest and most robust track for broad participation.</p></article>
-          <article class="card"><h3>Track B · Explanation</h3><p>Participants submit structured justifications, proofs, rationales, or traces that can be checked for validity and consistency.</p></article>
-          <article class="card"><h3>Track C · Robustness</h3><p>Participants are evaluated on distribution shifts, adversarial variants, or consistency under perturbations.</p></article>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="timeline">
       <div class="container">
         <div class="section-heading"><p class="eyebrow">Schedule</p><h2>Draft timeline</h2><p>Dates will be finalized if the proposal is accepted. All deadlines should use Anywhere-on-Earth time unless otherwise stated.</p></div>
@@ -204,7 +163,7 @@
     <section class="section alt" id="rules">
       <div class="container two-col">
         <div><p class="eyebrow">Rules</p><h2>Participation rules to finalize before launch</h2><p>Rules should be explicit before the leaderboard opens. Ambiguity creates avoidable disputes and weakens the proposal.</p></div>
-        <div class="highlight-box"><ul class="check-list"><li>Eligibility and team-size limits.</li><li>Submission limits per day and per phase.</li><li>Allowed external data, model use, prompting, tools, and human annotation.</li><li>Public/private leaderboard split and final ranking procedure.</li><li>Policy for duplicate accounts, data leakage, manual test-set inspection, and disqualification.</li><li>Top-team reproducibility package before awards are confirmed.</li></ul></div>
+        <div class="highlight-box"><ul class="check-list"><li>Eligibility and team-size limits.</li><li>Allowed external data sources, model use and prompting.</li><li>Public/private leaderboard split and final ranking procedure.</li><li>Policy for duplicate accounts, data leakage, manual test-set inspection, and disqualification.</li><li>Top-team reproducibility package before awards are confirmed.</li></ul></div>
       </div>
     </section>
 
@@ -213,18 +172,15 @@
         <div class="section-heading"><p class="eyebrow">Team</p><h2>Organizers</h2><p>The LogiCon organizing team is affiliated with LASIGE and is responsible for benchmark design, data release, evaluation infrastructure, participant support, and final reporting.</p></div>
         <div class="organizers">
           <article class="organizer-card">
-            <div class="organizer-head"><div class="avatar" aria-hidden="true">LD</div><div><h3>Leandro Duarte</h3><p>LASIGE MSc Student</p></div></div>
-            <p>Benchmark design and competition coordination.</p>
+            <div class="organizer-head"><div class="avatar" aria-hidden="true">LD</div><div><h3>Leandro Duarte</h3></div></div>
             <div class="organizer-links"><a class="profile-link" href="https://lasige.pt/msc-students/" target="_blank" rel="noreferrer">LASIGE listing</a><a class="profile-link" href="https://lasige.pt/research-line/health-and-biomedical-informatics/" target="_blank" rel="noreferrer">HBI line</a></div>
           </article>
           <article class="organizer-card">
-            <div class="organizer-head"><div class="avatar" aria-hidden="true">LB</div><div><h3>Laura Balbi</h3><p>LASIGE PhD Student</p></div></div>
-            <p>Evaluation, infrastructure, and participant support.</p>
+            <div class="organizer-head"><div class="avatar" aria-hidden="true">LB</div><div><h3>Laura Balbi</h3></div></div>
             <div class="organizer-links"><a class="profile-link" href="https://lasige.pt/research-line/health-and-biomedical-informatics/" target="_blank" rel="noreferrer">HBI line</a><a class="profile-link" href="https://lasige.pt/best-phd-symposium-paper-award-at-eswc-2025/" target="_blank" rel="noreferrer">LASIGE news</a></div>
           </article>
           <article class="organizer-card">
-            <div class="organizer-head"><div class="avatar" aria-hidden="true">CP</div><div><h3>Cátia Pesquita</h3><p>LASIGE Vice-Director · HBI Leader</p></div></div>
-            <p>Scientific direction, outreach, and reporting.</p>
+            <div class="organizer-head"><div class="avatar" aria-hidden="true">CP</div><div><h3>Cátia Pesquita</h3></div></div>
             <div class="organizer-links"><a class="profile-link" href="https://lasige.pt/organisation/" target="_blank" rel="noreferrer">LASIGE leadership</a><a class="profile-link" href="https://lasige.pt/research-line/health-and-biomedical-informatics/" target="_blank" rel="noreferrer">HBI line</a></div>
           </article>
         </div>
