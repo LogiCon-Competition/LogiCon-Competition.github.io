@@ -50,40 +50,36 @@
           <div class="status-panel" role="status"><strong>Status:</strong><span>Proposal site prepared for the NeurIPS 2026 Competition Track. This page does not claim official NeurIPS acceptance.</span></div>
         </div>
         <aside class="hero-logo-card" aria-label="Competition summary">
-          <div class="hero-logo-large" role="img" aria-label="LogiCon logo"></div>
-          <div class="card-header"><span class="pill">Static public hub</span><span class="pill muted">Codabench ready</span></div>
+          <div class="card-header">
+          </div>
           <dl class="facts">
             <div><dt>Website role</dt><dd>Canonical hub for rules, links, updates, and documentation</dd></div>
-            <div><dt>Submissions</dt><dd>External competition platform; Codabench placeholders prepared</dd></div>
-            <div><dt>Data release</dt><dd>Versioned public data plus protected hidden-test labels</dd></div>
-            <div><dt>Evaluation</dt><dd>Automated scoring bundle with validation gates</dd></div>
+            <div><dt>Submissions</dt><dd>Competition and submission platform hosted on Codabench</dd></div>
+            <div><dt>Data release</dt><dd>Versioned public training/validation data and protected test data and labels</dd></div>
+            <div><dt>Evaluation</dt><dd>Automated evaluation bundle, made avaliable on github</dd></div>
           </dl>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="overview">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Operating model</p>
-          <h2>The website is the hub, where participants can consult the calendar, submission rules and relevant links.</h2>
-          <p>The submission option redirects to Codabench, the default place for registration, submissions, scoring logs, leaderboard phases, and final ranking.</p>
-        </div>
-        <div class="highlight-box">
-          <ul class="check-list">
-            <li><strong>Competition platform:</strong> Codabench page for tasks, phases, submissions, and leaderboard.</li>
-            <li><strong>Data:</strong> Codabench-hosted public files </li>
-            <li><strong>Baseline Code:</strong> GitHub support kit with baselines, evaluation code and example submission.</li>
-            <li><strong>Contact:</strong> mailing list</li>
-            <li><strong>Discussion:</strong> Discord channel URL</li>
-          </ul>
-        </div>
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Schedule</p><h2>Draft timeline</h2><p>Dates will be finalized if the proposal is accepted. All deadlines are Anywhere-on-Earth.</p></div>
+        <ol class="timeline">
+          <li><time>May 2026</time><div><h3>Proposal submission</h3><p>Freeze reviewer-facing materials, including this website.</p></div></li>
+          <li><time>June 2026</time><div><h3>Competition launch</h3><p>Release training data, validation data, starter kit, baseline, rules, and registration link.</p></div></li>
+          <li><time>July-Aug 2026</time><div><h3>Public leaderboard opens</h3><p>For validation submissions, scoring sanity checks, and first participant support window.</p></div></li>
+          <li><time>Set 2026</time><div><h3>Main submission phase</h3><p>Competition runs on private test set, with regular FAQ updates and issue triage.</p></div></li>
+          <li><time>Oct 2026</time><div><h3>Private leaderboard release</h3><p>Top submissions verified and Private leaderboard released</p></div></li>
+          <li><time>Dec 2026</time><div><h3>Competition presentation</h3><p>Results and analysis presented at the NeurIPS Competition Track, if accepted.</p></div></li>
+        </ol>
       </div>
     </section>
-
+    
     <section class="section alt" id="codabench">
       <div class="container">
         <div class="section-heading">
+          <article class="mini-card"><h3>Participant flow</h3><ol><li>Register on Codabench.</li><li>Download data (and optionally support code) from this website.</li><li>Run local validation with the starter kit.</li><li>Upload predictions to the Codabench submission phase.</li><li>Codabench validates, scores, logs, and updates the leaderboard.</li></ol></article>
           <p class="eyebrow">Infrastructure links</p>
         </div>
         <div class="link-grid">
@@ -91,6 +87,7 @@
             <span class="tag">Submissions and Leaderboard</span>
             <strong>To submit model predictions</strong>
             <p>Participant upload page for prediction files and leaderboard.</p>
+            
             <code>TODO: Codabench submission phase URL</code>
           </a>
           <a class="link-card pending" href="#" aria-disabled="true">
@@ -113,20 +110,6 @@
       </div>
     </section>
 
-    <section class="section" id="submissions">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Submissions</p>
-          <h2>Use Codabench submissions, not a custom form.</h2>
-          <p>Participants should upload through Codabench so that submission limits, scoring logs, public/private phases, and failed submissions are handled consistently.</p>
-        <div class="stack">
-          <article class="mini-card"><h3>Participant flow</h3><ol><li>Register on Codabench.</li><li>Download data (and optionally support code) from this website.</li><li>Run local validation with the starter kit.</li><li>Upload predictions to the Codabench submission phase.</li><li>Codabench validates, scores, logs, and updates the leaderboard.</li></ol></article>
-          <article class="mini-card"><h3>When to use code submissions</h3><p>Use executable submissions only if hidden data must be processed by each participant system inside a controlled environment. Otherwise, prediction files are more robust.</p></article>
-        </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section alt" id="data">
       <div class="container two-col">
         <div>
@@ -134,31 +117,8 @@
           <p>LogiCon will provide enough public data for participants to develop systems, while keeping the test set and labels protected until the submission period has ceased. Data is exposed through Codabench.</p>
         </div>
         <div class="stack">
-          <article class="mini-card"><h3>Data splits</h3><ul><li><strong>Practice:</strong> small labeled examples and output format.</li><li><strong>Development:</strong> labeled data for local validation.</li><li><strong>Public test:</strong> hidden labels for leaderboard feedback.</li><li><strong>Private final test:</strong> hidden labels for final ranking.</li></ul></article>
           <article class="mini-card"><h3>Data package checklist</h3><ul><li>Dataset card, license, citation, and known limitations.</li><li>Stable release tags and checksums.</li><li>Example submission and schema validator.</li><li>Policy for external data, pretrained models, tools, and manual annotation.</li></ul></article>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="timeline">
-      <div class="container">
-        <div class="section-heading"><p class="eyebrow">Schedule</p><h2>Draft timeline</h2><p>Dates will be finalized if the proposal is accepted. All deadlines are Anywhere-on-Earth.</p></div>
-        <ol class="timeline">
-          <li><time>May 2026</time><div><h3>Proposal submission</h3><p>Freeze reviewer-facing materials, including this website.</p></div></li>
-          <li><time>June 2026</time><div><h3>Competition launch</h3><p>Release training data, validation data, starter kit, baseline, rules, and registration link.</p></div></li>
-          <li><time>July-Aug 2026</time><div><h3>Public leaderboard opens</h3><p>For validation submissions, scoring sanity checks, and first participant support window.</p></div></li>
-          <li><time>Set 2026</time><div><h3>Main submission phase</h3><p>Competition runs on private test set, with regular FAQ updates and issue triage.</p></div></li>
-          <li><time>Oct 2026</time><div><h3>Private leaderboard release</h3><p>Top submissions verified and Private leaderboard released</p></div></li>
-          <li><time>Dec 2026</time><div><h3>Competition presentation</h3><p>Results and analysis presented at the NeurIPS Competition Track, if accepted.</p></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section alt" id="rules">
-      <div class="container two-col">
-        <div><p class="eyebrow">Rules</p><p>
-         
-        </p></div>
       </div>
     </section>
 
