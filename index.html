@@ -118,9 +118,9 @@
         <div class="comparison-table" style="margin-top:24px;" aria-label="LogiCon tracks">
           <div class="row header"><span>Track</span><span>Contradiction type</span><span>Dataset composition</span></div>
           <div class="row"><strong>HierarCon</strong><span>Hierarchically inferred contradictions in the biomedical domain.</span><span>2,882 explicit + 2,882 implicit </span></div>
-          <div class="row"><strong>CardiCon</strong><span>Cardinality constraint violations, such as assigning multiple values where a single-value constraint applies.</span><span>30k explicit + 30k implicit, EN/ES/FR</span></div>
-          <div class="row"><strong>DisClass</strong><span>Disjoint class axiom violations where one class is placed under incompatible classes.</span><span>30k explicit + 30k implicit, EN/ES/FR</span></div>
-          <div class="row"><strong>DisTance</strong><span>Disjoint instance axiom violations where an instance is assigned to incompatible classes.</span><span>30k explicit + 30k implicit, EN/ES/FR</span></div>
+          <div class="row"><strong>CardiCon</strong><span>Cardinality constraint violations, such as assigning multiple values where a single-value constraint applies.</span><span>30k explicit + 30k implicit, EN/ES/FR/CN/DE/PT</span></div>
+          <div class="row"><strong>DisClass</strong><span>Disjoint class axiom violations where one class is placed under incompatible classes.</span><span>30k explicit + 30k implicit, EN/ES/FR/DE</span></div>
+          <div class="row"><strong>DisTance</strong><span>Disjoint instance axiom violations where an instance is assigned to incompatible classes.</span><span>30k explicit + 30k implicit, EN/ES/FR/DE/PT</span></div>
           <div class="row"><strong>Hard Track</strong><span>Contradictions that baseline zero-shot systems could not detect</span><span> -- </span></div>
           <!-- <div class="row"><strong>DirecNeg</strong><span>Direct negation sanity-check dataset.</span><span>10k </span></div> -->
         </div>
@@ -134,7 +134,7 @@
         <div>
           <p class="eyebrow">Evaluation</p>
           <h2>Measure performance and the explicit&ndash;implicit gap</h2>
-          <p>Participants submit one prediction per instance using the official submission format. CodaBench validates the file and computes official scores. Reference baselines will include open-source zero-shot instruction-following LLMs using the same prompts across tracks, plus a simple context-aware prompting baseline for explicit settings.</p>
+          <p>Participants submit one prediction per instance using the official submission format. CodaBench validates the file and computes the final ranking. Reference baselines will include open-source zero-shot instruction-following LLMs using the same prompts across tracks, plus a simple context-aware prompting baseline for explicit settings.</p>
           <p>The competition reports standard classification metrics, including macro-F1, accuracy, precision, and recall. The main challenge is to improve performance on implicit datasets and reduce the gap between explicit and implicit settings.</p>
         </div>
         <div class="stack">
