@@ -1,0 +1,25 @@
+/* Keeps the hero summary card content inside its rounded container. */
+.hero-logo-card,
+.hero-logo-card * {
+  min-width: 0;
+}
+
+.hero-logo-card {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.hero-logo-card .facts,
+.hero-logo-card .facts div,
+.hero-logo-card .facts dt,
+.hero-logo-card .facts dd,
+.hero-logo-card .facts a {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.hero-logo-card .facts div {
+  width: 100%;
+}
