@@ -53,12 +53,12 @@
         <aside class="hero-logo-card" aria-label="Competition summary">
           <div class="card-header">
             <span class="pill yes">Knowledge graphs</span>
-            <span class="pill">Contradiction detection</span>
-            <span class="pill muted">Explicit vs. implicit</span>
+            <span class="pill">Logical Contradictions</span>
+            <span class="pill muted">Explicit vs. implicit contradictions</span>
           </div>
           <dl class="facts">
-            <div><dt>Task</dt><dd>Predict whether provided statements are jointly contradictory.</dd></div>
-            <div><dt>Sources</dt><dd>Wikidata-derived common knowledge and ProteCon / Gene Ontology biomedical data.</dd></div>
+            <div><dt>Task</dt><dd>Prediction of whether a pair of statements is jointly contradictory.</dd></div>
+            <div><dt>Sources</dt><dd>Domain knowledge graphs (common knowledge and biomedical), multilingual labeled data (see details below).</dd></div>
             <div><dt>Inputs</dt><dd>Natural-language verbalizations of formal KG statements and constraints.</dd></div>
             <div><dt>Contact</dt><dd><a href="mailto:logicon.comp@listas.di.ciencias.ulisboa.pt">logicon.comp@listas.di.ciencias.ulisboa.pt</a></dd></div>
           </dl>
@@ -116,16 +116,16 @@
         </div>
 
         <div class="comparison-table" style="margin-top:24px;" aria-label="LogiCon tracks">
-          <div class="row header"><span>Track</span><span>Contradiction type</span><span>Dataset notes</span></div>
-          <div class="row"><strong>HierarCon</strong><span>Hierarchically inferred contradictions in the biomedical domain.</span><span>2,882 explicit + 2,882 implicit, English</span></div>
+          <div class="row header"><span>Track</span><span>Contradiction type</span><span>Dataset composition</span></div>
+          <div class="row"><strong>HierarCon</strong><span>Hierarchically inferred contradictions in the biomedical domain.</span><span>2,882 explicit + 2,882 implicit </span></div>
           <div class="row"><strong>CardiCon</strong><span>Cardinality constraint violations, such as assigning multiple values where a single-value constraint applies.</span><span>30k explicit + 30k implicit, EN/ES/FR</span></div>
           <div class="row"><strong>DisClass</strong><span>Disjoint class axiom violations where one class is placed under incompatible classes.</span><span>30k explicit + 30k implicit, EN/ES/FR</span></div>
           <div class="row"><strong>DisTance</strong><span>Disjoint instance axiom violations where an instance is assigned to incompatible classes.</span><span>30k explicit + 30k implicit, EN/ES/FR</span></div>
           <div class="row"><strong>Hard Track</strong><span>Contradictions that preliminary tested models could not identify.</span><span>Training/validation split; hidden test set</span></div>
-          <div class="row"><strong>DirecNeg</strong><span>Direct negation sanity-check dataset.</span><span>10k explicit, English</span></div>
+          <div class="row"><strong>DirecNeg</strong><span>Direct negation sanity-check dataset.</span><span>10k </span></div>
         </div>
 
-        <p class="small-note">Dataset composition may vary among language sub-tracks. Test labels remain private until the corresponding phase is complete.</p>
+        <p class="small-note">Test labels remain private until the corresponding phase is complete.</p>
       </div>
     </section>
 
@@ -157,7 +157,7 @@
         <div class="section-heading">
           <p class="eyebrow">Submissions and support</p>
           <h2>Competition infrastructure</h2>
-          <p>The competition will be hosted on CodaBench. Participants will register on the platform, download the public training data and starter kit, run local experiments with the validation script, and upload prediction files through the official submission interface.</p>
+          <p>The competition will be hosted on CodaBench. Participants will register on the platform, download the public training data and support kit, run local experiments with the validation script, and upload prediction files through the official submission platform</p>
         </div>
 
         <div class="cards three">
