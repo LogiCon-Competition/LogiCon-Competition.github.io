@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LogiCon — Proposed NeurIPS 2026 Competition</title>
-  <meta name="description" content="LogiCon is a proposed NeurIPS 2026 competition on logical consistency, reliable reasoning, and verifiable machine learning systems." />
+  <meta name="description" content="LogiCon is a proposed NeurIPS 2026 competition for evaluating whether LLM-based systems can detect logical contradictions in verbalized statements from real-world knowledge graphs." />
   <meta name="theme-color" content="#8b4c1f" />
   <meta property="og:title" content="LogiCon — Proposed NeurIPS 2026 Competition" />
-  <meta property="og:description" content="A competition hub for task, data, submissions, evaluation, rules, starter kits, Codabench links, and organizer information." />
+  <meta property="og:description" content="Competition hub for LogiCon: task, data, tracks, evaluation, rules, timeline, support kit, CodaBench links, and organizer information." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://logicon-competition.github.io/" />
   <link rel="canonical" href="https://logicon-competition.github.io/" />
@@ -19,17 +19,17 @@
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="LogiCon home">
-      <img class="logo-mark" src="images/logicon_compressed.jpeg" alt="" aria-hidden="true">
-      <span>LogiCon</span>
+        <img class="logo-mark" src="images/logicon_compressed.jpeg" alt="" aria-hidden="true">
+        <span>LogiCon</span>
       </a>
       <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links" data-nav-links>
         <a href="#overview">Overview</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#codabench">Submissions</a>
         <a href="#data">Data</a>
         <a href="#evaluation">Evaluation</a>
+        <a href="#submissions">Submissions</a>
         <a href="#rules">Rules</a>
+        <a href="#timeline">Timeline</a>
         <a href="#organizers">Organizers</a>
       </div>
     </nav>
@@ -41,129 +41,243 @@
         <div>
           <p class="eyebrow">Proposed NeurIPS 2026 Competition</p>
           <h1>LogiCon Competition</h1>
-          <p class="hero-subtitle">Benchmarking LLM-based Contradiction Detection</p>
-          <p class="hero-text">Contradiction Detection evaluation of LLMs on their ability do detect real-world inter-context conflicts of different semantic/logical bases and explicitness levels. This website is the public hub for the proposal and, if accepted, the competition launch.</p>
+          <p class="hero-subtitle">Logical contradiction detection for LLM-based systems</p>
+          <p class="hero-text">Real-world knowledge is heterogeneous, evolving, and not always mutually consistent. LogiCon evaluates whether LLM-based systems can detect logical contradictions in verbalized statements extracted from real knowledge graphs, including cases where the semantic context is explicit and cases where models must infer the missing assumption.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#codabench">Competition links</a>
+            <a class="button primary" href="#submissions">Competition links</a>
             <a class="button secondary" href="#evaluation">Evaluation protocol</a>
           </div>
-          <div class="status-panel" role="status"><strong>Status:</strong><span>Proposal site prepared for the NeurIPS 2026 Competition Track. This page does not claim official NeurIPS acceptance.</span></div>
+          <div class="status-panel" role="status"><strong>Status:</strong><span>Proposal site for the NeurIPS 2026 Competition Track. This page does not claim official NeurIPS acceptance.</span></div>
         </div>
         <aside class="hero-logo-card" aria-label="Competition summary">
           <div class="card-header">
+            <span class="pill yes">Knowledge graphs</span>
+            <span class="pill">Contradiction detection</span>
+            <span class="pill muted">Explicit vs. implicit</span>
           </div>
+          <dl class="facts">
+            <div><dt>Task</dt><dd>Predict whether provided statements are jointly contradictory.</dd></div>
+            <div><dt>Sources</dt><dd>Wikidata-derived common knowledge and ProteCon / Gene Ontology biomedical data.</dd></div>
+            <div><dt>Inputs</dt><dd>Natural-language verbalizations of formal KG statements and constraints.</dd></div>
+            <div><dt>Contact</dt><dd><a href="mailto:logicon.comp@listas.di.ciencias.ulisboa.pt">logicon.comp@listas.di.ciencias.ulisboa.pt</a></dd></div>
+          </dl>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="timeline">
-      <div class="container">
-        <div class="section-heading"><h2>Draft timeline</h2><p>Dates will be finalized if the proposal is accepted. All deadlines are Anywhere-on-Earth.</p></div>
-        <ol class="timeline">
-          <li><time>May 2026</time><div><h3>Proposal submission</h3><p>Freeze reviewer-facing materials, including this website.</p></div></li>
-          <li><time>June 2026</time><div><h3>Competition launch</h3><p>Release training data, validation data, starter kit, baseline, rules, and registration link.</p></div></li>
-          <li><time>July-Aug 2026</time><div><h3>Public leaderboard opens</h3><p>For validation submissions, scoring sanity checks, and first participant support window.</p></div></li>
-          <li><time>Set 2026</time><div><h3>Main submission phase</h3><p>Competition runs on private test set, with regular FAQ updates and issue triage.</p></div></li>
-          <li><time>Oct 2026</time><div><h3>Private leaderboard release</h3><p>Top submissions verified and Private leaderboard released</p></div></li>
-          <li><time>Dec 2026</time><div><h3>Competition presentation</h3><p>Results and analysis presented at the NeurIPS Competition Track, if accepted.</p></div></li>
-        </ol>
+    <section class="section" id="overview">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Overview</p>
+          <h2>Detect contradictions grounded in knowledge-source semantics</h2>
+          <p>LLM systems increasingly reason over external evidence from retrieved documents, knowledge graphs, and domain databases. These sources may disagree because of temporal change, ambiguity, provenance differences, or modeling assumptions. In applications such as retrieval-augmented generation, fact verification, question answering, recommendation, and knowledge-base integration, undetected contradictions can lead to unreliable outputs.</p>
+          <p>LogiCon turns this into a controlled evaluation task: given externally provided assertions, systems must decide whether the statements can jointly hold under the semantics of the source knowledge graph.</p>
+        </div>
+        <div class="stack">
+          <article class="mini-card">
+            <h3>What makes LogiCon different?</h3>
+            <ul>
+              <li>Contradictions are extracted from real-world knowledge graphs rather than written as synthetic sentence pairs.</li>
+              <li>Examples are organized by the semantic source of incompatibility, such as disjointness, hierarchy, direct negation, and cardinality constraints.</li>
+              <li>Explicit settings include the semantic context needed to detect the contradiction.</li>
+              <li>Implicit settings omit that context, requiring systems to infer the relevant background assumption.</li>
+            </ul>
+          </article>
+          <article class="mini-card">
+            <h3>Goal for participants</h3>
+            <p>Build, prompt, fine-tune, retrieve, or otherwise adapt LLM-based systems so that they become more aware of contradictory statements, especially in the implicit setting where the semantic basis of the conflict is not directly provided.</p>
+          </article>
+        </div>
       </div>
     </section>
-    
-    <section class="section alt" id="codabench">
+
+    <section class="section alt" id="data">
       <div class="container">
         <div class="section-heading">
-          <article class="mini-card"><h3>Participation procedure</h3><ol><li>Register on Codabench.</li><li>Download data (and optionally the support evaluation code and examples) from Codabench.</li>
-          <li>Run local validation with the support code.</li>
-            <li>Upload predictions to the Codabench submission phase.</li>
-          <li>Codabench validates, scores, logs, and updates the public leaderboard.</li>
-          <li>Run model testing and upload test predictions once the final test set is divulged and the final submission period opens.</li>
-          <li>We will evaluate and validate predictions and release the final leaderboard.</li>
-          </ol></article>
-          
-          <p class="eyebrow">Infrastructure links</p>
+          <p class="eyebrow">Data and tracks</p>
+          <h2>Benchmarks across contradiction types, explicitness levels, and domains</h2>
+          <p>LogiCon uses common-knowledge data derived from Wikidata and biomedical data derived from ProteCon, which combines Gene Ontology annotations with STRING-based protein data. Wikidata-derived tracks include English, Spanish, and French verbalizations where labels are available; biomedical tracks are in English.</p>
         </div>
+
+        <div class="cards three">
+          <article class="card">
+            <h3>Wikidata-derived data</h3>
+            <p>Structured common-knowledge claims with qualifiers and constraints. Tracks cover disjoint class axioms, disjoint instance axioms, and cardinality constraints.</p>
+          </article>
+          <article class="card">
+            <h3>ProteCon / GO data</h3>
+            <p>Biomedical protein annotations embedded in the Gene Ontology hierarchy. Tracks cover direct negation and hierarchically inferred contradictions.</p>
+          </article>
+          <article class="card">
+            <h3>Explicit and implicit variants</h3>
+            <p>Most contradiction types include an explicit version with the relevant semantic context and an implicit version where that context is omitted. Direct negation appears only in an explicit format.</p>
+          </article>
+        </div>
+
+        <div class="comparison-table" style="margin-top:24px;" aria-label="LogiCon tracks">
+          <div class="row header"><span>Track</span><span>Contradiction type</span><span>Dataset notes</span></div>
+          <div class="row"><strong>HierarCon</strong><span>Hierarchically inferred contradictions in the biomedical domain.</span><span>2,882 explicit + 2,882 implicit, English</span></div>
+          <div class="row"><strong>CardiCon</strong><span>Cardinality constraint violations, such as assigning multiple values where a single-value constraint applies.</span><span>30k explicit + 30k implicit, EN/ES/FR</span></div>
+          <div class="row"><strong>DisClass</strong><span>Disjoint class axiom violations where one class is placed under incompatible classes.</span><span>30k explicit + 30k implicit, EN/ES/FR</span></div>
+          <div class="row"><strong>DisTance</strong><span>Disjoint instance axiom violations where an instance is assigned to incompatible classes.</span><span>30k explicit + 30k implicit, EN/ES/FR</span></div>
+          <div class="row"><strong>Hard Track</strong><span>Contradictions that preliminary tested models could not identify.</span><span>Training/validation split; hidden test set</span></div>
+          <div class="row"><strong>DirecNeg</strong><span>Direct negation sanity-check dataset.</span><span>10k explicit, English</span></div>
+        </div>
+
+        <p class="small-note">Dataset composition may vary among language sub-tracks. Test labels remain private until the corresponding phase is complete.</p>
+      </div>
+    </section>
+
+    <section class="section" id="evaluation">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Evaluation</p>
+          <h2>Measure performance and the explicit&ndash;implicit gap</h2>
+          <p>Participants submit one prediction per instance using the official submission format. CodaBench validates the file and computes official scores. Reference baselines will include open-source zero-shot instruction-following LLMs using the same prompts across tracks, plus a simple context-aware prompting baseline for explicit settings.</p>
+          <p>The competition reports standard classification metrics, including macro-F1, accuracy, precision, and recall. The main challenge is to improve performance on implicit datasets and reduce the gap between explicit and implicit settings.</p>
+        </div>
+        <div class="stack">
+          <article class="highlight-box">
+            <h3>Primary comparison</h3>
+            <p>The explicit&ndash;implicit gap for a metric <strong>M</strong> is:</p>
+            <p><strong>&Delta;M = M<sub>explicit</sub> &minus; M<sub>implicit</sub></strong></p>
+            <p>Lower gaps indicate more robust reasoning when the relevant semantic context is omitted. Negative values are possible but not expected under equal evaluation procedures.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Final ranking</h3>
+            <p>Public leaderboard submissions are used during validation. Final rankings are computed only on hidden test labels after the final submission deadline.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="submissions">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Submissions and support</p>
+          <h2>Competition infrastructure</h2>
+          <p>The competition will be hosted on CodaBench. Participants will register on the platform, download the public training data and starter kit, run local experiments with the validation script, and upload prediction files through the official submission interface.</p>
+        </div>
+
+        <div class="cards three">
+          <article class="mini-card">
+            <h3>Participation procedure</h3>
+            <ol>
+              <li>Register on CodaBench.</li>
+              <li>Download public training data, validation inputs, starter kit, and examples.</li>
+              <li>Run local validation with the official support code.</li>
+              <li>Upload validation predictions during the public leaderboard phase.</li>
+              <li>Upload final test predictions after the test phase opens.</li>
+            </ol>
+          </article>
+          <article class="mini-card">
+            <h3>Provided material</h3>
+            <ul>
+              <li>Dataset documentation and split metadata.</li>
+              <li>License information and known limitations.</li>
+              <li>Validation script and submission-format examples.</li>
+              <li>Baseline code and scoring scripts.</li>
+            </ul>
+          </article>
+          <article class="mini-card">
+            <h3>Communication</h3>
+            <p>Rule clarifications, deadline changes, and technical updates will be posted publicly on the website and CodaBench. Participants can contact organizers by email, GitHub issues, and the CodaBench forum.</p>
+          </article>
+        </div>
+
         <div class="link-grid">
           <a class="link-card pending" href="#" aria-disabled="true">
-            <span class="tag">Submissions and Leaderboard</span>
-            <strong>To submit model predictions</strong>
-            <p>Participant upload page for prediction files and leaderboard.</p>
-            
-            <code>TODO: Codabench submission phase URL</code>
+            <span class="tag">Submissions and leaderboard</span>
+            <strong>CodaBench competition page</strong>
+            <p>Official upload page for validation and test predictions.</p>
+            <code>TODO: CodaBench competition URL</code>
           </a>
           <a class="link-card pending" href="#" aria-disabled="true">
             <span class="tag">Dataset</span>
             <strong>Dataset download</strong>
-            <code>TODO: Direct Codabench dataset URL</code>
+            <p>Training data, validation inputs, and later test inputs.</p>
+            <code>TODO: CodaBench dataset URL</code>
           </a>
           <a class="link-card pending" href="#" aria-disabled="true">
             <span class="tag">Support code</span>
-            <p>Baseline models, evaluation script and submission example</p>
+            <strong>Starter kit and baselines</strong>
+            <p>Submission examples, validation script, baseline code, and scoring code.</p>
             <code>TODO: https://github.com/LogiCon-Competition/support-code</code>
           </a>
-          <a class="link-card pending" href="#" aria-disabled="true">
-            <span class="tag">Rules</span>
-            
-            <h2>Terms and Conditions</h2>
-            <p> By registering for the CoSEC Depth Challenge, downloading the dataset, or submitting predictions to the evaluation server, participants agree to the following terms.<p>
-
-<p>1. Academic and Research Use</p>
-<p>The CoSEC dataset, including event data, frame data, depth annotations, calibration files, metadata, and benchmark tools, is provided for academic research and challenge participation purposes only.
-Commercial use, redistribution, sublicensing, or monetization of the dataset is prohibited without prior written permission from the organizers.</p>
-
-<p>2. Data Usage</p>
-<p>Participants may use the official CoSEC training data for model development.
-External datasets, pretrained models, synthetic data, and additional training resources are allowed only if they are publicly available or legally accessible, and must be disclosed upon request.
-The test set must only be used for official evaluation. Participants must not attempt to access, reconstruct, manually annotate, reverse-engineer, or infer the hidden ground-truth depth data.
-</p>
-            
-<p>3. Submission Rules</p>
-<p>Each submission must follow the official submission format, including filenames, data format, and folder structure.
-Invalid, corrupted, incomplete, or incorrectly formatted submissions may be rejected by the organizers.</p>
-            
-<p>4. Fair Use and Anti-Cheating Policy</p>
-
-<p>Participants must not probe or exploit the evaluation server, manually tune predictions on the test set, use hidden test-set ground truth, submit hard-coded predictions, or use multiple accounts or teams to gain an unfair advantage.
-Any form of cheating, data leakage, or violation of the challenge rules may result in disqualification and removal from the leaderboard.</p>
-            
-<p>5. Technical Report and Verification</p>
-<p>Top-ranked teams may be required to submit a short technical report describing their method, training data, model architecture, loss functions, post-processing steps, and external resources.
-The organizers may request code, logs, model outputs, or additional information for result verification.</p>
-
-<p>6. Liability and Disclaimer</p>
-<p>The dataset, benchmark tools, and evaluation server are provided "as is" without warranty of any kind.
-The organizers are not liable for any damages arising from the use of the dataset or participation in this challenge.
-The organizers reserve the right to modify the challenge rules, evaluation protocol, metrics, timeline, or participation terms when necessary.
-</p>
-            
-<p>7. Publication and Citation</p>
-<p>The organizers may publish the final leaderboard, aggregated results, and analyses of submitted methods.
-Participants who use the CoSEC dataset or report challenge results in publications are expected to cite the official CoSEC paper or challenge reference provided by the organizers.</p>
-</p>
-</a>
-</div>
-</div>
-</section>
-
-    <section class="section alt" id="data">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Data release</p>
-          <p>LogiCon will provide enough public data for participants to develop systems, while keeping the test set and labels protected until the submission period has ceased. Data is exposed through Codabench.</p>
         </div>
-        <div class="stack">
-          <article class="mini-card"><h3>Data package checklist</h3><ul><li>Dataset card, license, citation, and known limitations.</li><li>Stable release tags and checksums.</li><li>Example submission and schema validator.</li><li>Policy for external data, pretrained models, tools, and manual annotation.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section" id="rules">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Rules and engagement</p>
+          <h2>Participant rules</h2>
+          <p>These rules are intended to evaluate contradiction detection from the provided statements, not reverse-engineering of the dataset construction process.</p>
         </div>
+
+        <div class="cards three">
+          <article class="card">
+            <h3>Allowed approaches</h3>
+            <ul>
+              <li>Prompting, fine-tuning, retrieval-augmented methods, symbolic or neuro-symbolic reasoning, open-source models, and commercial APIs are allowed.</li>
+              <li>All external resources, models, prompts, and datasets used by a team must be disclosed in the final system description.</li>
+              <li>Participants provide their own compute resources; no special hardware platform is required.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Submission requirements</h3>
+            <ul>
+              <li>Predictions must be submitted only through the official CodaBench competition platform.</li>
+              <li>Each submission must follow the released official format and contain one prediction per instance.</li>
+              <li>Validation submissions per team per day and final test submissions will be limited to reduce overfitting.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Prohibited behavior</h3>
+            <ul>
+              <li>Do not manually label validation or test instances.</li>
+              <li>Do not share hidden test predictions across teams.</li>
+              <li>Do not reconstruct hidden labels by querying the source knowledge graphs using instance identifiers or other leakage cues.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="callout">
+          <h3>Result verification</h3>
+          <p>Organizers may request code, prompts, logs, outputs, or other methodological details from top-ranked teams before confirming final rankings. Teams should be prepared to document their method and all external resources used.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="timeline">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Schedule</p>
+          <h2>Competition timeline</h2>
+          <p>Dates follow the current proposal schedule and will be updated publicly if the competition timeline changes.</p>
+        </div>
+        <ol class="timeline">
+          <li><time>Done</time><div><h3>Finish baseline implementation</h3><p>Baseline implementation completed before launch preparation.</p></div></li>
+          <li><time>Done</time><div><h3>Finish website preparation and launch</h3><p>Public website prepared with overview, rules, timeline, and infrastructure links.</p></div></li>
+          <li><time>June 10, 2026</time><div><h3>Aid scripts ready</h3><p>Finish preparing and testing aid scripts for launch.</p></div></li>
+          <li><time>June 17, 2026</time><div><h3>Submission platform goes live</h3><p>CodaBench platform becomes available.</p></div></li>
+          <li><time>June 22, 2026</time><div><h3>Registration starts</h3><p>Participants can register for the competition.</p></div></li>
+          <li><time>June 29, 2026</time><div><h3>Competition starts</h3><p>Release aid scripts, training and validation datasets, and public leaderboard with preliminary results.</p></div></li>
+          <li><time>September 3, 2026</time><div><h3>Validation leaderboard deadline</h3><p>Final submission of validation scores for the public leaderboard.</p></div></li>
+          <li><time>September 14, 2026</time><div><h3>Test phase begins</h3><p>Release test datasets for final evaluation.</p></div></li>
+          <li><time>September 18, 2026</time><div><h3>Final test submission</h3><p>Deadline for test-phase submissions.</p></div></li>
+          <li><time>October 2, 2026</time><div><h3>Winners announced</h3><p>Winning teams are announced for all tracks.</p></div></li>
+        </ol>
       </div>
     </section>
 
     <section class="section" id="organizers">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">Team</p><h2>Organizers</h2><p>The LogiCon organizing team is affiliated with LASIGE and is responsible for benchmark design, data release, evaluation infrastructure, participant support, and final reporting.</p></div>
+        <div class="section-heading"><p class="eyebrow">Team</p><h2>Organizers</h2><p>The LogiCon organizing team is affiliated with LASIGE, Faculdade de Ciências, Universidade de Lisboa, and is responsible for benchmark design, data release, evaluation infrastructure, participant support, and final reporting.</p></div>
         <div class="organizers">
           <article class="organizer-card">
-            <div class="organizer-head"><img class="avatar" src="images/Leandro_Duarte.png" alt="Leandro Duarte"><div><h3>Leandro Duarte</h3></div>  
-            </div>
+            <div class="organizer-head"><img class="avatar" src="images/Leandro_Duarte.png" alt="Leandro Duarte"><div><h3>Leandro Duarte</h3></div></div>
           </article>
           <article class="organizer-card">
             <div class="organizer-head"><img class="avatar" src="images/laura_balbi.jpg" alt="Laura Balbi"><div><h3>Laura Balbi</h3></div></div>
@@ -179,8 +293,9 @@ Participants who use the CoSEC dataset or report challenge results in publicatio
       <div class="container">
         <div class="section-heading"><p class="eyebrow">FAQ</p><h2>Frequently asked questions</h2></div>
         <div class="faq">
-          <article class="faq-item"><h3>Will submissions be made on this website?</h3><p>No. Submissions should be made through the Codabench link above.</p></article>
-          <article class="faq-item"><h3>How will invalid submissions be handled?</h3><p>Invalid submissions should receive clear error messages and no leaderboard score unless the platform records them separately as failed attempts.</p></article>
+          <article class="faq-item"><h3>Will submissions be made on this website?</h3><p>No. Submissions should be made through the official CodaBench link once it is available.</p></article>
+          <article class="faq-item"><h3>Can teams use commercial APIs?</h3><p>Yes. Commercial APIs are allowed, provided that all external resources and models are disclosed in the final system description.</p></article>
+          <article class="faq-item"><h3>Can teams query Wikidata, GO, STRING, or ProteCon to recover labels?</h3><p>No. Participants must not attempt to reconstruct hidden validation or test labels by querying source knowledge graphs with instance identifiers or leakage cues.</p></article>
         </div>
       </div>
     </section>
