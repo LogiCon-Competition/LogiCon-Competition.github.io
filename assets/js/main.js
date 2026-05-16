@@ -24,9 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
     fallback.className = 'avatar avatar-fallback';
     fallback.setAttribute('aria-hidden', 'true');
     fallback.textContent = makeInitials(name);
+    fallback.style.display = 'grid';
+    fallback.style.placeItems = 'center';
+    fallback.style.background = '#ffe1b4';
+    fallback.style.color = '#7a3d10';
+    fallback.style.fontWeight = '950';
+    fallback.style.fontSize = '18px';
     return fallback;
   };
 
+  // Some organizer entries may be authored as <div class="avatar" src="...">.
+  // Convert them to real images so the repository image files render correctly.
   document.querySelectorAll('.organizer-head .avatar[src]').forEach((avatar) => {
     if (avatar.tagName.toLowerCase() !== 'img') {
       const img = document.createElement('img');
@@ -37,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // If an image file is missing or invalid, keep the layout intact with initials.
   document.querySelectorAll('img.avatar').forEach((img) => {
     img.addEventListener('error', () => {
       img.replaceWith(makeFallbackAvatar(img.alt));
