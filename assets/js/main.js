@@ -33,15 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
     return fallback;
   };
 
-  // Some organizer entries may be authored as <div class="avatar" src="...">.
-  // Convert them to real images so the repository image files render correctly.
-  document.querySelectorAll('.organizer-head .avatar[src]').forEach((avatar) => {
+  // Some organizer entries may be authored as <div class="avatar" src="..."> with
+  // the organizer name nested inside the avatar div. Convert the avatar to a real
+  // image while preserving and moving the name/link back into the organizer row.
+  document.querySelectorAll('.organizer-head > .avatar[src]').forEach((avatar) => {
     if (avatar.tagName.toLowerCase() !== 'img') {
+      const parent = avatar.parentNode;
       const img = document.createElement('img');
       img.className = avatar.className;
       img.src = avatar.getAttribute('src');
       img.alt = avatar.getAttribute('alt') || '';
-      avatar.replaceWith(img);
+
+      const nestedContent = Array.from(avatar.childNodes);
+      parent.insertBefore(img, avatar);
+      nestedContent.forEach((node) => parent.insertBefore(node, avatar));
+      parent.removeChild(avatar);
     }
   });
 
