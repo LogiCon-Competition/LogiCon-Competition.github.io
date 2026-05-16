@@ -7,4 +7,4 @@ The final site URL is:
 https://logicon-competition.github.io/
 ```
 
-We keep the website as the canonical public hub and link outward to Codabench for datasets and starter code, and to discussion forums and reports.
+We keep the website as the canonical public hub and link outward to Codabench for datasets and support code/kit here, and to discussion forums and reports.
